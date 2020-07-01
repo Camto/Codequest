@@ -42,18 +42,18 @@ lmap_maybe = comp(list, map_maybe)
 
 ## Input parsing.
 
-parse_list = lambda t, l: lmap(lambda _: get_in(t), range(l))
-
 # Parse all the problem's input at once.
-def get_in(expect_type):
+def parse_str(expect_type, s):
 	if expect_type in [int, float, str]:
-		return expect_type(input())
+		return expect_type(s)
 	elif expect_type is bool:
-		return rbool(input())
+		return rbool(s)
 	elif type(expect_type) is tuple:
-		inp = input().split(" ")
-		return tuple(map(
-			tuplefy(lambda t, i: t(i) if type(t) is not list else parse_list(t[0], int(i))),
-			zip(expect_type, inp)))
+		inp = s.split(" ")
+		return tuple(map(tuplefy(parse_str), zip(expect_type, inp)))
 	elif type(expect_type) is list:
-		return parse_list(expect_type[0], get_in(int))
+		# List needs more input lines to parse.
+		return lmap(lambda _: get_in(expect_type[0]), range(int(s)))
+
+# Parse from input()
+get_in = lambda expect_type: parse_str(expect_type, input())
