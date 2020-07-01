@@ -38,7 +38,7 @@ def get_in(expect_type):
 			zip(expect_type, inp)))
 	elif type(expect_type) is list:
 		return parse_list(expect_type[0], get_in(int))
-lmap(solution, get_in(<INPUT HERE>))
+lmap(solution, get_in([<INPUT HERE>]))
 
 def solution(given):
 ## End template.
