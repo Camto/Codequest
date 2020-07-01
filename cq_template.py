@@ -13,9 +13,8 @@ lrange = lambda *args: list(range(*args))
 lreversed = lambda *args: list(reversed(*args))
 
 def comp(*funcs):
-	def comp2(f, g):
-		return lambda x: f(g(x))
-	return reduce(comp2, funcs, lambda x: x)
+	comp2 = lambda f, g: lambda x: f(g(x))
+	return reduce(comp2, funcs)
 
 const = lambda val: lambda _: val
 
@@ -31,11 +30,11 @@ def curry(n, f):
 
 curried = curry(2, curry)
 
-concat_ = lambda lists: reduce(concat, lists)
+concat_ = partial(reduce, concat)
 
 alpha = "abcdefghijklmnopqrstuvwxyz"
-fbool = lambda b: str(b).lower()
-rbool = lambda s: s == "true"
+fbool = comp(str.lower, str)
+rbool = partial(eq, "true")
 
 get_in = lambda: sys.stdin.readline().rstrip()
 
