@@ -36,7 +36,5 @@ alpha = "abcdefghijklmnopqrstuvwxyz"
 fbool = comp(str.lower, str)
 rbool = partial(eq, "true")
 
-get_in = lambda: sys.stdin.readline().rstrip()
-
-cases = int(get_in())
+cases = int(input())
 for case_num in range(cases):
