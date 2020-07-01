@@ -5,24 +5,12 @@ import re
 from functools import *
 from itertools import *
 from operator import *
-
-map_maybe = lambda *args: filter(partial(ne, None), map(*args))
-
+# Composition related.
 def comp(*funcs):
 	comp2 = lambda f, g: lambda *x: f(g(*x))
 	return reduce(comp2, funcs)
-	
-lmap = comp(list, map)
-lfilter = comp(list, filter)
-lrange = comp(list, range)
-lreversed = comp(list, reversed)
-lmap_maybe = comp(list, map_maybe)
-
-const = lambda val: lambda _: val
-
 tuplefy = lambda f: lambda args: f(*args)
 untuplefy = lambda f: lambda *args: f(args)
-
 def curry(n, f):
 	def wrap(*args):
 		if n > len(args):
@@ -30,10 +18,17 @@ def curry(n, f):
 		return f(*args)
 	return wrap
 curried = curry(2, curry)
-
+const = lambda val: lambda _: val
+# Utilities
+map_maybe = lambda *args: filter(partial(ne, None), map(*args))
 concat_ = partial(reduce, concat)
 alpha = "abcdefghijklmnopqrstuvwxyz"
 fbool = comp(str.lower, str)
 rbool = partial(eq, "true")
+lmap = comp(list, map)
+lfilter = comp(list, filter)
+lrange = comp(list, range)
+lreversed = comp(list, reversed)
+lmap_maybe = comp(list, map_maybe)
 
 for case_num in range(int(input())):
