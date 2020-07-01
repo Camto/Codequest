@@ -23,5 +23,5 @@ def parse_str(expect_type, s):
 		return lmap(lambda _: get_in(expect_type[0]), range(int(s)))
 get_in = lambda expect_type: parse_str(expect_type, input())
 for given in get_in([str]):
-	print(given.lower())
 ## End template.
+	print(given.lower())
