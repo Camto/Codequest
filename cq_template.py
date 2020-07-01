@@ -31,4 +31,4 @@ lrange = comp(list, range)
 lreversed = comp(list, reversed)
 lmap_maybe = comp(list, map_maybe)
 
-for case_num in range(int(input())):
+for _ in range(int(input())):
