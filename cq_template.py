@@ -47,5 +47,4 @@ alpha = "abcdefghijklmnopqrstuvwxyz"
 fbool = comp(str.lower, str)
 rbool = partial(eq, "true")
 
-cases = int(input())
-for case_num in range(cases):
+for case_num in range(int(input())):
