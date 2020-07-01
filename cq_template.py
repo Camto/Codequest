@@ -39,5 +39,5 @@ rbool = lambda s: s == "true"
 
 get_in = lambda: sys.stdin.readline().rstrip()
 
-#cases = int(get_in())
-#for case_num in range(cases):
+cases = int(get_in())
+for case_num in range(cases):
