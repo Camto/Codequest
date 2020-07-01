@@ -1,3 +1,4 @@
+## Begin template.
 import sys
 import math
 import string
@@ -31,7 +32,8 @@ lrange = comp(list, range)
 lreversed = comp(list, reversed)
 lenumerate = comp(list, enumerate)
 lmap_maybe = comp(list, map_maybe)
-get_list_len = lambda t, l: lmap(
+# Input parsing.
+parse_list = lambda t, l: lmap(
 	lambda _: get_in(t),
 	range(l))
 def get_in(expect_type):
@@ -45,9 +47,11 @@ def get_in(expect_type):
 			tuplefy(lambda t, i:
 				t(i)
 					if type(t) is not list
-					else get_list_len(t[0], int(i))),
+					else parse_list(t[0], int(i))),
 			zip(expect_type, inp)))
 	elif type(expect_type) is list:
-		return get_list_len(expect_type[0], get_in(int))
+		return parse_list(expect_type[0], get_in(int))
+lmap(solution, get_in(<INPUT HERE>))
 
-for _ in range(int(input())):
+def solution(given):
+## End template.
