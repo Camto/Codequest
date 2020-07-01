@@ -60,4 +60,4 @@ def parse_str(s, *expect_types):
 		return lmap(lambda _: parse_str(input(), *expect_type), range(int(s)))
 
 # Parse from input()
-get_in = lambda *expect_types: parse_str(input(), [*expect_types])
+get_in = lambda *expect_types: parse_str(input(), *expect_types)

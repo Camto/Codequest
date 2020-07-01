@@ -24,7 +24,7 @@ def parse_str(s, *expect_types):
 		return tuple(map(lambda t: parse_str(input(), t), expect_type))
 	elif type(expect_type) is list:
 		return lmap(lambda _: parse_str(input(), *expect_type), range(int(s)))
-get_in = lambda *expect_types: parse_str(input(), [*expect_types])
+get_in = lambda *expect_types: parse_str(input(), *expect_types)
 ## End template.
 
 for <VARS HERE> in get_in([<INPUT HERE>]):
