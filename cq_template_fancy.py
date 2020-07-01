@@ -14,9 +14,7 @@ from operator import *
 ## Composition related.
 
 # Function composition.
-def comp(*funcs):
-	comp2 = lambda f, g: lambda *x: f(g(*x))
-	return reduce(comp2, funcs)
+comp = lambda *funcs: reduce(lambda f, g: lambda *x: f(g(*x)), funcs)
 
 # To compose multiargument functions easier.
 tuplefy = lambda f: lambda args: f(*args)
@@ -55,8 +53,7 @@ def get_in(expect_type):
 	elif type(expect_type) is tuple:
 		inp = input().split(" ")
 		return tuple(map(
-			tuplefy(lambda t, i:
-				t(i) if type(t) is not list else parse_list(t[0], int(i))),
+			tuplefy(lambda t, i: t(i) if type(t) is not list else parse_list(t[0], int(i))),
 			zip(expect_type, inp)))
 	elif type(expect_type) is list:
 		return parse_list(expect_type[0], get_in(int))
