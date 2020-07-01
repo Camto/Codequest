@@ -24,8 +24,7 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([(int, bool)]):
-	speed, bday = given
+for speed, bday in get_in([(int, bool)]):
 	if bday:
 		speed -= 5
 	if speed <= 60:

@@ -24,12 +24,12 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([str]):
-	given = map_maybe(
+for times in get_in([str]):
+	times = map_maybe(
 		lambda s: None if s.strip() == "" else s.strip(),
-		given.replace("and", "").replace(",", " ").split(" "))
+		times.replace("and", "").replace(",", " ").split(" "))
 	seconds = minutes = hours = "0"
-	for time in given:
+	for time in times:
 		suffix = time[-1]
 		if suffix == "s":
 			seconds = time[:-1]

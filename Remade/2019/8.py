@@ -24,8 +24,7 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([(int, int)]):
-	y, x = given
+for y, x in get_in([(int, int)]):
 	matrix = lmap(lambda _: [10] * 20, range(20))
 	for row in range(20):
 		for col in range(20):

@@ -24,6 +24,6 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([int]):
-	for i in range(2**given):
-		print(bin(i)[2:].zfill(given))
+for n in get_in([int]):
+	for i in range(2**n):
+		print(bin(i)[2:].zfill(n))

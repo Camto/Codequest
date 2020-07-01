@@ -24,8 +24,7 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([(int, int)]):
-	n1, n2 = given
+for n1, n2 in get_in([(int, int)]):
 	if n1 == n2:
 		print(2 * (n1 + n2))
 	else:

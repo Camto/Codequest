@@ -24,6 +24,5 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([(bool, bool)]):
-	bool1, bool2 = given
+for bool1, bool2 in get_in([(bool, bool)]):
 	print(fbool(bool1 == bool2))

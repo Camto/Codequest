@@ -24,8 +24,8 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([[float]]):
-	min_ = min(given)
-	max_ = max(given)
-	for n in given:
+for nums in get_in([[float]]):
+	min_ = min(nums)
+	max_ = max(nums)
+	for n in nums:
 		print(round(255 * (n - min_) / (max_ - min_)))

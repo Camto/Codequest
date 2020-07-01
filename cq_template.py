@@ -24,4 +24,4 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([<INPUT HERE>]):
+for <VARS HERE> in get_in([<INPUT HERE>]):

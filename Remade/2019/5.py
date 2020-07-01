@@ -24,7 +24,6 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([(int, int, int)]):
-	n1, n2, n3 = given
+for n1, n2, n3 in get_in([(int, int, int)]):
 	n3 -= min(n2, n3 // 5) * 5 # Use long bricks.
 	print(fbool(n1 >= n3))

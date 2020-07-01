@@ -24,8 +24,7 @@ def parse_str(expect_type, s):
 get_in = lambda expect_type: parse_str(expect_type, input())
 ## End template.
 
-for given in get_in([(int, int, [(int, int)])]):
-	rows, cols, locs = given
+for rows, cols, locs in get_in([(int, int, [(int, int)])]):
 	locs = lmap(tuplefy(lambda x, y: (x + 1, y + 1)), locs)
 	board = lmap(lambda _: [0] * (cols + 2), range(rows + 2))
 	
