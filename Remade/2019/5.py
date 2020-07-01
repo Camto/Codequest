@@ -22,8 +22,9 @@ def parse_str(expect_type, s):
 	elif type(expect_type) is list:
 		return lmap(lambda _: get_in(expect_type[0]), range(int(s)))
 get_in = lambda expect_type: parse_str(expect_type, input())
-for given in get_in([(int, int, int)]):
 ## End template.
+
+for given in get_in([(int, int, int)]):
 	n1, n2, n3 = given
 	n3 -= min(n2, n3 // 5) * 5 # Use long bricks.
 	print(fbool(n1 >= n3))

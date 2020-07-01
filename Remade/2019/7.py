@@ -22,8 +22,9 @@ def parse_str(expect_type, s):
 	elif type(expect_type) is list:
 		return lmap(lambda _: get_in(expect_type[0]), range(int(s)))
 get_in = lambda expect_type: parse_str(expect_type, input())
-for given in get_in([[float]]):
 ## End template.
+
+for given in get_in([[float]]):
 	min_ = min(given)
 	max_ = max(given)
 	for n in given:
