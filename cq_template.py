@@ -31,5 +31,23 @@ lrange = comp(list, range)
 lreversed = comp(list, reversed)
 lenumerate = comp(list, enumerate)
 lmap_maybe = comp(list, map_maybe)
+get_list_len = lambda t, l: lmap(
+	lambda _: get_in(t),
+	range(l))
+def get_in(expect_type):
+	if expect_type in [int, float, str]:
+		return expect_type(input())
+	elif expect_type is bool:
+		return rbool(input())
+	elif type(expect_type) is tuple:
+		inp = input().split(" ")
+		return tuple(map(
+			tuplefy(lambda t, i:
+				t(i)
+					if type(t) is not list
+					else get_list_len(t[0], int(i))),
+			zip(expect_type, inp)))
+	elif type(expect_type) is list:
+		return get_list_len(expect_type[0], get_in(int))
 
 for _ in range(int(input())):
