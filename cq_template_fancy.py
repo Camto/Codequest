@@ -50,6 +50,7 @@ lmap = comp(list, map)
 lfilter = comp(list, filter)
 lrange = comp(list, range)
 lreversed = comp(list, reversed)
+lenumerate = comp(list, enumerate)
 lmap_maybe = comp(list, map_maybe)
 
 # for _ in range(int(input())):
