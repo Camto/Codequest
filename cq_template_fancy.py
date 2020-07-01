@@ -64,7 +64,6 @@ def get_in(expect_type):
 		return rbool(input())
 	elif type(expect_type) is tuple:
 		inp = input().split(" ")
-		print(list(zip(expect_type, inp)))
 		return tuple(map(
 			tuplefy(lambda t, i:
 				t(i)
