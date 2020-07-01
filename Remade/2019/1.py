@@ -27,5 +27,5 @@ def parse_str(s, *expect_types):
 get_in = lambda *expect_types: parse_str(input(), [*expect_types])
 ## End template.
 
-for given in get_in(str):
+for given in get_in([str]):
 	print(given.lower())
