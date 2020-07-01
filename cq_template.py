@@ -1,4 +1,4 @@
-## Begin template.
+## Begin template https://github.com/Camto/Codequest .
 import sys
 import math
 import string
