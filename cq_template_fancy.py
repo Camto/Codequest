@@ -55,9 +55,9 @@ def parse_str(s, *expect_types):
 		return rbool(s)
 	# They needs more input lines to parse.
 	elif type(expect_type) is tuple:
-		return tuple(map(lambda t: parse_str(input(), t), expect_type))
+		return (parse_str(s, expect_type[0]),) + tuple(map(get_in, expect_type[1:]))
 	elif type(expect_type) is list:
-		return lmap(lambda _: parse_str(input(), *expect_type), range(int(s)))
+		return lmap(lambda _: get_in(*expect_type), range(int(s)))
 
 # Parse from input()
 get_in = lambda *expect_types: parse_str(input(), *expect_types)

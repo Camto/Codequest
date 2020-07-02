@@ -21,10 +21,10 @@ def parse_str(s, *expect_types):
 	elif expect_type is bool:
 		return rbool(s)
 	elif type(expect_type) is tuple:
-		return tuple(map(lambda t: parse_str(input(), t), expect_type))
+		return (parse_str(s, expect_type[0]),) + tuple(map(get_in, expect_type[1:]))
 	elif type(expect_type) is list:
 		return lmap(lambda _: parse_str(input(), *expect_type), range(int(s)))
-get_in = lambda *expect_types: parse_str(input(), [*expect_types])
+get_in = lambda *expect_types: parse_str(input(), *expect_types)
 ## End template.
 
 for n1, n2 in get_in([int, int]):
