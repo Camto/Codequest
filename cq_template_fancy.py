@@ -1,4 +1,4 @@
-## Imports
+## Imports.
 
 # Basic imports.
 import sys
