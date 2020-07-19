@@ -21,6 +21,10 @@ def parse_str(s, *expect_types):
 		return expect_type(s)
 	elif expect_type is bool:
 		return rbool(s)
+	elif type(expect_type) is str:
+		found = re.compile(expect_type).search(s)
+		try: return found.group(1)
+		except: return found.group()
 	elif type(expect_type) is tuple:
 		return (parse_str(s, expect_type[0]),) + tuple(map(get_in, expect_type[1:]))
 	elif type(expect_type) is list:
