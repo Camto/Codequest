@@ -29,6 +29,9 @@ map_maybe = lambda *args: filter(partial(ne, None), map(*args))
 fbool = comp(str.lower, str)
 rbool = partial(eq, "true")
 
+# Make a matrix.
+matrix = lambda cols, rows, val: lmap(lambda _: [val] * cols, range(rows))
+
 # Shorter list conversion.
 lmap = comp(list, map)
 lfilter = comp(list, filter)

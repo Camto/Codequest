@@ -7,6 +7,7 @@ tuplefy = lambda f: lambda args: f(*args); untuplefy = lambda f: lambda *args: f
 ## Utility functions.
 map_maybe = lambda *args: filter(partial(ne, None), map(*args))
 fbool = comp(str.lower, str); rbool = partial(eq, "true")
+matrix = lambda cols, rows, val: lmap(lambda _: [val] * cols, range(rows))
 lmap = comp(list, map); lfilter = comp(list, filter); lrange = comp(list, range)
 lreversed = comp(list, reversed); lenumerate = comp(list, enumerate); lmap_maybe = comp(list, map_maybe)
 ## Input parsing.
