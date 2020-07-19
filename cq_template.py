@@ -6,7 +6,6 @@ comp = lambda *funcs: reduce(lambda f, g: lambda *x: f(g(*x)), funcs)
 tuplefy = lambda f: lambda args: f(*args); untuplefy = lambda f: lambda *args: f(args)
 ## Utility functions.
 map_maybe = lambda *args: filter(partial(ne, None), map(*args))
-alpha = "abcdefghijklmnopqrstuvwxyz"
 fbool = comp(str.lower, str); rbool = partial(eq, "true")
 lmap = comp(list, map); lfilter = comp(list, filter); lrange = comp(list, range)
 lreversed = comp(list, reversed); lenumerate = comp(list, enumerate); lmap_maybe = comp(list, map_maybe)

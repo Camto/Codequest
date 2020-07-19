@@ -25,9 +25,6 @@ untuplefy = lambda f: lambda *args: f(args)
 # Map and filter combined.
 map_maybe = lambda *args: filter(partial(ne, None), map(*args))
 
-# The alphabet.
-alpha = "abcdefghijklmnopqrstuvwxyz"
-
 # Bool formatting and reading.
 fbool = comp(str.lower, str)
 rbool = partial(eq, "true")
