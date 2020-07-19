@@ -8,6 +8,7 @@ tuplefy = lambda f: lambda args: f(*args); untuplefy = lambda f: lambda *args: f
 map_maybe = lambda *args: filter(partial(ne, None), map(*args))
 fbool = comp(str.lower, str); rbool = partial(eq, "true")
 matrix = lambda cols, rows, val: lmap(lambda _: [val] * cols, range(rows))
+chunks = lambda l, n: [l[i * n:(i + 1) * n] for i in range((len(l) + n - 1) // n)]
 lmap = comp(list, map); lfilter = comp(list, filter); lrange = comp(list, range)
 lreversed = comp(list, reversed); lenumerate = comp(list, enumerate); lmap_maybe = comp(list, map_maybe)
 ## Input parsing.
@@ -20,6 +21,10 @@ def parse_str(s, *expect_types):
 		return expect_type(s)
 	elif expect_type is bool:
 		return rbool(s)
+	elif type(expect_type) is str:
+		found = re.compile(expect_type).search(s)
+		try: return found.group(1)
+		except: return found.group()
 	elif type(expect_type) is tuple:
 		return (parse_str(s, expect_type[0]),) + tuple(map(get_in, expect_type[1:]))
 	elif type(expect_type) is list:
@@ -27,8 +32,7 @@ def parse_str(s, *expect_types):
 get_in = lambda *expect_types: parse_str(input(), *expect_types)
 ## End template.
 
-for nth in get_in([str]):
-	n = nth[:-2]
+for n in get_in(["\d+"]):
 	if len(n) >= 2 and n[-2] == "1":
 		print(n + "th")
 	else:
