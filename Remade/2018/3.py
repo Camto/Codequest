@@ -22,9 +22,7 @@ def parse_str(s, *expect_types):
 	elif expect_type is bool:
 		return rbool(s)
 	elif type(expect_type) is str:
-		found = re.compile(expect_type).search(s)
-		try: return found.group(1)
-		except: return found.group()
+		return re.findall(expect_type, s)
 	elif type(expect_type) is tuple:
 		return (parse_str(s, expect_type[0]),) + tuple(map(get_in, expect_type[1:]))
 	elif type(expect_type) is list:
@@ -32,7 +30,7 @@ def parse_str(s, *expect_types):
 get_in = lambda *expect_types: parse_str(input(), *expect_types)
 ## End template.
 
-for n in get_in(["\d+"]):
+for [n] in get_in(["\d+"]):
 	if len(n) >= 2 and n[-2] == "1":
 		print(n + "th")
 	else:
