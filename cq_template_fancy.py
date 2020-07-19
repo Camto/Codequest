@@ -32,6 +32,9 @@ rbool = partial(eq, "true")
 # Make a matrix.
 matrix = lambda cols, rows, val: lmap(lambda _: [val] * cols, range(rows))
 
+# Split list into chunks.
+chunks = lambda l, n: [l[i * n:(i + 1) * n] for i in range((len(l) + n - 1) // n)]
+
 # Shorter list conversion.
 lmap = comp(list, map)
 lfilter = comp(list, filter)

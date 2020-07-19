@@ -8,6 +8,7 @@ tuplefy = lambda f: lambda args: f(*args); untuplefy = lambda f: lambda *args: f
 map_maybe = lambda *args: filter(partial(ne, None), map(*args))
 fbool = comp(str.lower, str); rbool = partial(eq, "true")
 matrix = lambda cols, rows, val: lmap(lambda _: [val] * cols, range(rows))
+chunks = lambda l, n: [l[i * n:(i + 1) * n] for i in range((len(l) + n - 1) // n)]
 lmap = comp(list, map); lfilter = comp(list, filter); lrange = comp(list, range)
 lreversed = comp(list, reversed); lenumerate = comp(list, enumerate); lmap_maybe = comp(list, map_maybe)
 ## Input parsing.
