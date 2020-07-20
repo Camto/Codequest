@@ -32,7 +32,7 @@ get_in = lambda *expect_types: parse_str(input(), *expect_types)
 
 for inp in get_in(["[^ ]+"]):
 	bools = lmap(lambda s: s == "WORKING", inp)
-	n = sum(map(tuplefy(lambda i, n: 0 if bools[i] else n), lenumerate([8, 4, 2, 1])))
+	n = sum(map_maybe(tuplefy(lambda i, n: None if bools[i] else n), lenumerate([8, 4, 2, 1])))
 	
 	topnum = n // 4
 	if topnum == 0: light1 = "off"
