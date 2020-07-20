@@ -35,7 +35,7 @@ for choices in get_in(["[RPS]"]):
 	if "R" in choices and "S" in choices: winner = lfilter(lambda s: s != "S", winner)
 	if "P" in choices and "R" in choices: winner = lfilter(lambda s: s != "R", winner)
 	if "S" in choices and "P" in choices: winner = lfilter(lambda s: s != "P", winner)
-
+	
 	if len(winner) != 1: print("NO WINNER")
 	else:
 		win = winner[0]
